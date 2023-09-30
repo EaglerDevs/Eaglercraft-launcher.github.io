@@ -26,6 +26,7 @@ options = [
     "Eaglercraft 1.5.2 (Recent Client)",
     "Eaglercraft 1.5.2 (Precision Client)",
     "Eaglercraft 1.8.8",
+    "Eaglercraft 1.8.8 (q13x Client)",
     'Eaglercraft 1.8.8 (Fuchsiax Client)',
     'Eaglercraft 1.14'
 ]
@@ -36,7 +37,8 @@ clients = {
     'Eaglercraft 1.5.2': 'https://html5gfiles.github.io/minecraft-15/',
     'Eaglercraft 1.5.2 (Recent Client)': 'https://resent.vercel.app',
     'Eaglercraft 1.5.2 (Precision Client)': 'https://html5gfiles.github.io/precision-client',
-    'Eaglercraft 1.8.8': 'https://eaglercraft.q13x.com',
+    'Eaglercraft 1.8.8': 'https://ggrules.github.io/eaglercrfat/',
+    'Eaglercraft 1.8.8 (q13x Client)': 'https://eaglercraft.q13x.com',
     'Eaglercraft 1.8.8 (Fuchsiax Client)': 'https://elidoesexploits.github.io/eaglercraft/FuschiaX/',
     'Eaglercraft 1.14': 'https://eaglerdevs.github.io/EaglerCraft/'
 }
