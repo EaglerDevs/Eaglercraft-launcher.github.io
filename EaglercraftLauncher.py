@@ -27,8 +27,9 @@ options = [
     "Eaglercraft 1.5.2 (Precision Client)",
     "Eaglercraft 1.8.8",
     "Eaglercraft 1.8.8 (q13x Client)",
-    'Eaglercraft 1.8.8 (Fuchsiax Client)',
-    'Eaglercraft 1.14'
+    "Eaglercraft 1.8.8 (Fuchsiax Client)",
+    "Eaglercraft 1.8.8 (DragonX v3 Client)"
+    "Eaglercraft 1.14"
 ]
 
 # Define the URLs for each client
@@ -40,6 +41,7 @@ clients = {
     'Eaglercraft 1.8.8': 'https://ggrules.github.io/eaglercrfat/',
     'Eaglercraft 1.8.8 (q13x Client)': 'https://eaglercraft.q13x.com',
     'Eaglercraft 1.8.8 (Fuchsiax Client)': 'https://elidoesexploits.github.io/eaglercraft/FuschiaX/',
+    'Eaglercraft 1.8.8 (DragonX v3 Client)': 'https://radmanplays.github.io/hacked/dragonxv3-1.8.8/',
     'Eaglercraft 1.14': 'https://eaglerdevs.github.io/EaglerCraft/'
 }
 
