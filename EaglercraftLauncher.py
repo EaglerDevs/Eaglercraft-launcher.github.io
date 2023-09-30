@@ -2,6 +2,12 @@ import webview
 import tkinter as tk
 from tkinter import *
 
+#Created by BtPlayzX
+#Getting improved by BtPlayzX and the eagdevs
+#remember pip install pywebview
+
+
+
 # Create the main application window
 root = tk.Tk()
 root.title('Eaglercraft Launcher')
