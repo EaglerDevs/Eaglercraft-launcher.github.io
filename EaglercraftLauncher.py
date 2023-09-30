@@ -1,6 +1,10 @@
 import webview
 import tkinter as tk
 from tkinter import *
+import threading
+import random
+from time import sleep
+
 
 #Created by BtPlayzX
 #Getting improved by BtPlayzX and the eagdevs
@@ -43,9 +47,15 @@ title_label.pack(pady=20)
 title_label.configure(foreground="blue")  # Initial color
 
 def change_title_color():
-    title_label.configure(foreground="red")  # Transition to red color
+    while True:
+        title_label.configure(foreground=random.choice(['red', 'orange', 'green', 'blue'])) # Choose a random color
+        sleep(0.5)  # Change color after 1 second (adjust timing as needed)
+        #DO NOT CHANGE sleep(0.5) to root.delay() function as it does not hit the gui loop!
 
-root.after(2000, change_title_color)  # Change color after 2 seconds (adjust timing as needed)
+# lets make the title label change every 0.5 second FOREVER
+change_title_color_thread = threading.Thread(target=change_title_color)
+change_title_color_thread.daemon = True
+change_title_color_thread.start()
 
 # Create a label for client selection
 client_label = Label(root, text='Select a Eaglercraft Client:', font=("Arial", 14))
