@@ -14,6 +14,7 @@ from time import sleep
 root = tk.Tk()
 root.title('Eaglercraft Launcher')
 root.geometry("800x600")  # Set window size
+root.iconphoto(False, PhotoImage(file='eaglerlogo.png')) #set window logo
 
 #Launcher is still in beta.. lets tell our user that
 Label(root, text='Launcher in beta phase.. there will be more features soon!').pack()
