@@ -6,12 +6,13 @@ from tkinter import *
 #Getting improved by BtPlayzX and the eagdevs
 #remember pip install pywebview
 
-
-
 # Create the main application window
 root = tk.Tk()
 root.title('Eaglercraft Launcher')
 root.geometry("800x600")  # Set window size
+
+#Launcher is still in beta.. lets tell our user that
+Label(root, text='Launcher in beta phase.. there will be more features soon!').pack()
 
 # Define client options
 options = [
