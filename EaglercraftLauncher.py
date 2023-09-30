@@ -8,7 +8,7 @@ from time import sleep
 
 #Created by BtPlayzX
 #Getting improved by BtPlayzX and the eagdevs
-#remember pip install pywebview
+#pip install pywebview
 
 # Create the main application window
 root = tk.Tk()
