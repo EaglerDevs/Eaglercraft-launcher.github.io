@@ -2,22 +2,18 @@ import webview
 import tkinter as tk
 from tkinter import *
 import threading
-import random
-from time import sleep
-
-
-#Created by BtPlayzX
-#Getting improved by BtPlayzX and the eagdevs
-#pip install pywebview
 
 # Create the main application window
 root = tk.Tk()
 root.title('Eaglercraft Launcher')
 root.geometry("800x600")  # Set window size
-root.iconphoto(False, PhotoImage(file='eaglerlogo.png')) #set window logo
 
-#Launcher is still in beta.. lets tell our user that
-Label(root, text='Launcher in beta phase.. there will be more features soon!').pack()
+# Set the window icon
+root.iconbitmap('Eaglerlogo.ico')  # Replace 'path_to_your_icon.ico' with the actual path to your icon file
+
+# Launcher is still in beta.. let's tell our users that
+beta_label = Label(root, text='Launcher in beta phase... More features coming soon!', font=("Arial", 14))
+beta_label.pack(pady=20)
 
 # Define client options
 options = [
@@ -27,54 +23,21 @@ options = [
     "Eaglercraft 1.5.2 (Recent Client)",
     "Eaglercraft 1.5.2 (Precision Client)",
     "Eaglercraft 1.8.8",
-    "Eaglercraft 1.8.8 (q13x Client)",
-    "Eaglercraft 1.8.8 (Fuchsiax Client)",
-    "Eaglercraft 1.8.8 (DragonX v3 Client)",
-    "Eaglercraft 1.8.8 (Kone Client)",
-    "Eaglercraft 1.14"
+    'Eaglercraft 1.8.8 (Fuchsiax Client)',
+    'Eaglercraft 1.14'
 ]
 
-# Define the URLs for each client
-clients = {
-    'Eaglercraft 1.3': 'https://mopnop.github.io/eaglercraft-singleplayer/',
-    'Eaglercraft 1.5.2': 'https://html5gfiles.github.io/minecraft-15/',
-    'Eaglercraft 1.5.2 (Recent Client)': 'https://radmanplays.github.io/resent-1.8.8/',
-    'Eaglercraft 1.5.2 (Precision Client)': 'https://html5gfiles.github.io/precision-client',
-    'Eaglercraft 1.8.8': 'https://ggrules.github.io/eaglercrfat/',
-    'Eaglercraft 1.8.8 (q13x Client)': 'https://eaglercraft.q13x.com',
-    'Eaglercraft 1.8.8 (Fuchsiax Client)': 'https://elidoesexploits.github.io/eaglercraft/FuschiaX/',
-    'Eaglercraft 1.8.8 (DragonX v3 Client)': 'https://radmanplays.github.io/hacked/dragonxv3-1.8.8/',
-    'Eaglercraft 1.8.8 (Kone Client)': 'https://radmanplays.github.io/Koneclient-1.8.8/',
-    'Eaglercraft 1.14': 'https://eaglerdevs.github.io/EaglerCraft/'
-}
-
-# Create a label for the title with a transition effect
-title_label = Label(root, text='Welcome to the Eaglercraft Launcher', font=("Arial", 20, "bold"))
-title_label.pack(pady=20)
-title_label.configure(foreground="blue")  # Initial color
-
-def change_title_color():
-    while True:
-        title_label.configure(foreground=random.choice(['red', 'orange', 'green', 'blue'])) # Choose a random color
-        sleep(0.5)  # Change color after 1 second (adjust timing as needed)
-        #DO NOT CHANGE sleep(0.5) to root.delay() function as it does not hit the gui loop!
-
-# lets make the title label change every 0.5 second FOREVER
-change_title_color_thread = threading.Thread(target=change_title_color)
-change_title_color_thread.daemon = True
-change_title_color_thread.start()
-
 # Create a label for client selection
-client_label = Label(root, text='Select a Eaglercraft Client:', font=("Arial", 14))
+client_label = Label(root, text='Select an Eaglercraft Client:', font=("Arial", 16))
 client_label.pack()
 
-# Create a dropdown menu with a transition effect
+# Create a dropdown menu with a cleaner design
 clicked = StringVar()
 clicked.set(options[0])
 
 drop = OptionMenu(root, clicked, *options)
-drop.config(font=("Arial", 12))
-drop.pack(pady=10)
+drop.config(font=("Arial", 14))
+drop.pack(pady=15)
 
 # Function to launch the selected client with a transition effect
 def launch():
@@ -86,20 +49,62 @@ def launch():
         webview.start()
     else:
         # Display an error message if "Choose Eaglercraft Client" is selected
-        error_label = Label(root, text="Please select a valid Eaglercraft client.", foreground="red", font=("Arial", 12))
+        error_label = Label(root, text="Please select a valid Eaglercraft client.", foreground="red", font=("Arial", 14))
         error_label.pack(pady=10)
 
-# Create a launch button with a transition effect
-launch_button = Button(root, text="Launch Eaglercraft Client", command=launch, font=("Arial", 16))
-launch_button.pack(pady=20)
+# Create a launch button with a grey background
+launch_button = Button(root, text="Launch Eaglercraft Client", command=launch, font=("Arial", 16), bg='grey', fg='white')
+launch_button.pack(pady=15)
 
-# Function to exit the application with a transition effect
+# Create an Update button with a grey background
+def open_github():
+    import webbrowser
+    webbrowser.open('https://github.com/EaglerDevs/Eaglercraft-launcher.github.io')
+
+update_button = Button(root, text="Update", command=open_github, font=("Arial", 16), bg='grey', fg='white')
+update_button.pack(pady=15)
+
+# Function to open the settings menu
+def open_settings():
+    settings_window = Toplevel(root)
+    settings_window.title("Settings")
+    settings_window.geometry("400x300")
+
+    # Add settings options here (customize as needed)
+    theme_label = Label(settings_window, text="Select Theme:", font=("Arial", 14))
+    theme_label.pack(pady=10)
+
+    theme_options = ["Light Theme", "Dark Theme"]
+    theme_var = StringVar()
+    theme_var.set(theme_options[0])
+    theme_menu = OptionMenu(settings_window, theme_var, *theme_options)
+    theme_menu.config(font=("Arial", 12))
+    theme_menu.pack()
+
+    font_label = Label(settings_window, text="Font Size:", font=("Arial", 14))
+    font_label.pack(pady=10)
+
+    font_scale = Scale(settings_window, from_=10, to=20, orient="horizontal")
+    font_scale.set(12)  # Default font size
+    font_scale.pack()
+
+    # Add more settings options and functionality here
+
+# Create a Settings button and place it under the Update button
+settings_button = Button(root, text="Settings", command=open_settings, font=("Arial", 16), bg='grey', fg='white')
+settings_button.pack(pady=15)
+
+# Function to exit the application
 def exit_launcher():
     root.destroy()
 
-# Create an Exit button with a transition effect
-exit_button = Button(root, text="Exit", command=exit_launcher, font=("Arial", 16))
-exit_button.pack(pady=10)
+# Create an Exit button and place it in the bottom left corner
+exit_button = Button(root, text="Exit", command=exit_launcher, font=("Arial", 16), bg='grey', fg='white')
+exit_button.pack(side=LEFT, anchor=SW, padx=20, pady=20)
+
+# Create a Credits section in the bottom right corner
+credits_label = Label(root, text='Made by:\nbtplayzxgit\nFlamePVPCodes\nAR-DEV', font=("Arial", 12))
+credits_label.pack(side=RIGHT, anchor=SE, padx=20, pady=20)
 
 # Run the main application loop
 root.mainloop()
