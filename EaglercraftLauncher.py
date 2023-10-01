@@ -105,5 +105,8 @@ def exit_launcher():
 exit_button = Button(root, text="Exit", command=exit_launcher, font=("Arial", 16))
 exit_button.pack(pady=10)
 
+#credits
+Label(text='@BtPlayzX\n@FlamePVPCodes').pack()
+
 # Run the main application loop
 root.mainloop()
