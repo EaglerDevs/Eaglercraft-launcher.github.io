@@ -16,6 +16,10 @@ root.title('Eaglercraft Launcher')
 root.geometry("800x600")  # Set window size
 root.iconphoto(False, PhotoImage(file='eaglerlogo.png')) #set window logo
 
+#draw the background
+bg = PhotoImage(file='background.png')
+Label(root, image=bg).place(x=0, y=0)
+
 #Launcher is still in beta.. lets tell our user that
 Label(root, text='Launcher in beta phase.. there will be more features soon!').pack()
 
